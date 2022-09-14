@@ -6,17 +6,23 @@ class Solution {
         // we need to find both the biggest numbers in the array that are *also* the furthest away from each other possible
         
         int totalValue = 0;
+        int left = 0;
+        int right = height.length - 1;
         
-        for(int i = 0; i < height.length; i++){
-        for(int j = i + 1; j < height.length; j++){
+        while(left < right) {
+            int tempValue = (right - left) * Math.min(height[left], height[right]);
             
-            //totalValue = Math.max(totalValue, Math.min(height[i], height[j]) * (j - i));
-           
-            int tempValue = (j-i) * Math.min(height[i], height[j]);
-            totalValue = Math.max(totalValue, tempValue);
+            if(tempValue > totalValue) {
+                totalValue = tempValue;
+            }
             
+            if(height[left] > height[right]) {
+                right--;
+            }
+            else {
+                left++;
+            }
         }
-        }
-        return totalValue;
+    return totalValue;
     }
 }
