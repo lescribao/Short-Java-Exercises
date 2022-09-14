@@ -10,7 +10,11 @@ class Solution {
         for(int i = 0; i < height.length; i++){
         for(int j = i + 1; j < height.length; j++){
             
-            totalValue = Math.max(totalValue, Math.min(height[i], height[j]) * (j - i));
+            //totalValue = Math.max(totalValue, Math.min(height[i], height[j]) * (j - i));
+           
+            int tempValue = (j-i) * Math.min(height[i], height[j]);
+            totalValue = Math.max(totalValue, tempValue);
+            
         }
         }
         return totalValue;
