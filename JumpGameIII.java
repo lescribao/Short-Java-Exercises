@@ -5,23 +5,23 @@ class Solution {
         
         Queue<Integer> queue = new LinkedList<Integer>();
         queue.offer(start);
-        boolean[] visited =new boolean[arr.length];
+        boolean[] visited = new boolean[arr.length];
         
         
         while(!queue.isEmpty()){
             
-            int index= queue.poll();
+            int index = queue.poll();
             
-            if(arr[index]==0) return true;
+            if(arr[index] == 0) return true;
             
             if(visited[index]) continue;
             
-            visited[index]=true;
+            visited[index] = true;
             
-            if(index+arr[index]<arr.length){
-                queue.offer(index+arr[index]);
+            if(index + arr[index] < arr.length){
+                queue.offer(index + arr[index]);
             }
-            if(index-arr[index]>=0){
+            if(index - arr[index] >= 0){
                 queue.offer(index-arr[index]);
             }
         }
